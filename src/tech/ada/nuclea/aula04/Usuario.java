@@ -29,5 +29,8 @@ public class Usuario {
     }
 
 
+    public boolean equals(Object object) {
+        return ((Usuario) object).getEmail().equals(this.email);
+    }
 
 }

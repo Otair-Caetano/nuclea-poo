@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class OperacoesUsuario {
 
-    ArrayList<Usuario> usuariosDoBancoDeDados;
+    private ArrayList<Usuario> usuariosDoBancoDeDados;
 
     public OperacoesUsuario() {
         this.usuariosDoBancoDeDados = new ArrayList<>();
@@ -13,14 +13,30 @@ public class OperacoesUsuario {
     //Implementar validação por e-mail já salvo em banco de dados,
     //caso usuário que chega como parâmetro possua o mesmo e-mail, apresentar
     //uma mensagem informando que o usuário está duplicado e não salvá-lo
-
+    //pesquisar sobre métodos em arrayslist para fazer essa validação.
     public void salvarUsuario(Usuario usuario) {
-        usuariosDoBancoDeDados.add(usuario);
+        boolean isCadastrado = false;
+
+        for(Usuario user : this.usuariosDoBancoDeDados) {
+            if (user.getEmail().equals(usuario.getEmail())) {
+                System.err.println("Usuário já cadastrado");
+                isCadastrado = true;
+                break;
+            }
+        }
+        if (!isCadastrado) {
+            usuariosDoBancoDeDados.add(usuario);
+        }
     }
 
     public ArrayList<Usuario> getUsuariosDoBancoDeDados() {
         return this.usuariosDoBancoDeDados;
     }
+
+
+
+
+
     // Inicialização pelo setter seria ruim, pois estaríamos delegando para outra classe
     // a responsabilidade de criação do nosso banco em memória.
 

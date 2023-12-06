@@ -10,6 +10,8 @@ public class TesteUsuario {
         Usuario usuario = new Usuario("Rodolfo", "rodolfo.lima@gmail.com",
                 LocalDate.of(1994, 3, 26));
 
+        Usuario usuario2 = new Usuario("Carlos", "carlos.lima11@gmail.com",
+                LocalDate.of(1994, 3, 26));
 
         //Instanciar a classe OperacoesUsuario que usaremos para
         // interagir com as operações de bancos de dados do usuário
@@ -19,6 +21,8 @@ public class TesteUsuario {
 
         //Chamando o método responsável por adicionar um usuário no array.
         operacoesUsuario.salvarUsuario(usuario);
+
+        operacoesUsuario.salvarUsuario(usuario2);
 
         ArrayList<Usuario> usuariosSalvos = operacoesUsuario.getUsuariosDoBancoDeDados();
 
